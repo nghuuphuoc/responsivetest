@@ -1,0 +1,389 @@
+/**
+ * ResponsiveTest
+ * 
+ * @author		Nguyen Huu Phuoc [http://nextcms.org]
+ * @link		http://responsivetest.net
+ */
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+iframe {
+	background-color: #fff;
+	border: none;
+	display: block;
+	margin: 0 auto;
+	-webkit-transition: all 0.15s ease-in-out 0s;
+	-moz-transition: all 0.15s ease-in-out 0s;
+	-o-transition: all 0.15s ease-in-out 0s;
+	transition: all 0.15s ease-in-out 0s;
+	width: 100%;
+	height: 100%;
+}
+
+.app-loader {
+	background: url("../img/loader.gif") no-repeat center center;
+	margin: 0 auto;
+	opacity: 0.4;
+}
+
+.app-device-wrapper {
+	margin: 20px 0 20px 0;
+}
+
+/* OVERRIDE BOOTSTRAP
+ * ================== */
+.dl-horizontal dt {
+	width: 200px;
+}
+
+.dl-horizontal dd {
+	font-style: italic;
+	height: 50px;
+	margin-left: 210px;
+	vertical-align: top;
+}
+
+.app-menu.navbar .brand {
+	margin-left: 20px;
+}
+.app-menu form {
+	position: fixed;
+	right: 10px;
+	top: 0;
+}
+
+.app-menu.navbar .nav,
+.app-menu.navbar .nav > li {
+	float: none;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+}
+
+.app-menu .navbar-inner {
+	background-color: #fff;
+	background-image: none;
+	border-bottom: 1px solid #ccc;
+	box-shadow: none;
+	filter: none;
+	height: 40px;
+	text-align: center;
+}
+
+.app-menu .dropdown-menu {
+	text-align: left;
+}
+
+.app-menu.navbar .nav > li > a {
+	color: #333;
+	text-shadow: none;
+}
+
+.app-menu.navbar .nav > li > a:hover {
+	color: #08c;
+}
+
+.app-menu.navbar .nav .active > a {
+/*.app-menu.navbar .nav .active > a:hover {*/
+	background-color: #999;
+}
+
+.app-menu.navbar .nav li > a > span {
+	position: absolute;
+	right: 15px;
+	/*padding-left: 40px;*/
+}
+
+.app-menu .dropdown-menu a {
+	position: relative;
+	width: 250px;
+}
+
+.app-menu.navbar .divider-vertical {
+	background-color: #fff;
+	border-right: 1px solid #ccc;
+}
+
+/* LOGO
+ * ==== */
+.app-logo {
+	display: block;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	text-indent: 9999em;
+}
+
+.app-responsive-logo {
+	background: url("../img/logo-responsive.png") no-repeat center left;
+	height: 30px;
+	padding-bottom: 0px !important;
+	padding-left: 80px !important;
+}
+
+.app-logo-nextcms {
+	background-image: url("../img/logo-nextcms.png");
+	width: 197px;
+	height: 42px;
+}
+
+.app-logo-zo2 {
+	background-image: url("../img/logo-zo2.png");
+	width: 200px;
+	height: 45px;
+}
+
+.app-logo-zoo {
+	background-image: url("../img/logo-zootemplate.png");
+	width: 200px;
+	height: 39px;
+}
+
+.app-logo-magetheme {
+	background-image: url("../img/logo-9magentothemes.png");
+	width: 200px;
+	height: 43px;
+}
+
+/* DEVICES
+ * ======= */
+.app-icon-about {
+	background: url("../img/icon-about.png") no-repeat;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	vertical-align: text-top;
+} 
+ 
+.app-icon-desktop {
+	background: url("../img/icon-imac.png") no-repeat;
+	display: inline-block;
+	width: 26px;
+	height: 22px;
+	line-height: 22px;
+	vertical-align: text-top;
+}
+
+.app-icon-tablet {
+	background: url("../img/icon-ipad.png") no-repeat;
+	display: inline-block;
+	width: 16px;
+	height: 22px;
+	line-height: 22px;
+	vertical-align: text-top;
+}
+
+.app-icon-phone {
+	background: url("../img/icon-iphone.png") no-repeat;
+	display: inline-block;
+	width: 13px;
+	height: 22px;
+	line-height: 22px;
+	vertical-align: text-top;
+}
+
+/* Desktops */
+/* Top 3 popular resolutions according to http://en.wikipedia.org/wiki/Display_resolution */
+.app-device-dx1024x768 {
+	background: url("../img/dx1024x768.png") no-repeat top center;
+	width: 100%;
+	height: 914px;
+	padding-top: 20px;
+}
+
+.app-device-dx1024x768 iframe {
+	width: 1039px;
+	height: 768px;
+}
+
+.app-device-dx1280x800 {
+	background: url("../img/dx1280x800.png") no-repeat top center;
+	width: 100%;
+	height: 946px;
+	padding-top: 20px;
+}
+
+.app-device-dx1280x800 iframe {
+	width: 1295px;
+	height: 800px;
+}
+
+.app-device-dx1366x768 {
+	background: url("../img/dx1366x768.png") no-repeat top center;
+	width: 100%;
+	height: 914px;
+	padding-top: 20px;
+}
+
+.app-device-dx1366x768 iframe {
+	width: 1381px;
+	height: 768px;
+}
+
+.app-device-dx1440x900 {
+	background: url("../img/dx1440x900.png") no-repeat top center;
+	width: 100%;
+	height: 1046px;
+	padding-top: 20px;
+}
+
+.app-device-dx1440x900 iframe {
+	width: 1455px;
+	height: 900px;
+}
+
+.app-device-dx1680x1050 {
+	background: url("../img/dx1680x1050.png") no-repeat top center;
+	width: 100%;
+	height: 1196px;
+	padding-top: 20px;
+}
+
+.app-device-dx1680x1050 iframe {
+	width: 1695px;
+	height: 1050px;
+}
+
+.app-device-dx1920x1080 {
+	background: url("../img/dx1920x1080.png") no-repeat top center;
+	width: 100%;
+	height: 1226px;
+	padding-top: 20px;
+}
+
+.app-device-dx1920x1080 iframe {
+	width: 1935px;
+	height: 1080px;
+}
+
+/* Tablets */
+.app-device-tx600x1024 {
+	background: url("../img/tx600x1024.png") no-repeat top center;
+	width: 100%;
+	height: 1254px;
+	padding-top: 81px;
+}
+
+.app-device-tx600x1024 iframe {
+	width: 615px;
+	height: 1024px;
+}
+
+.app-device-tx1024x600 {
+	background: url("../img/tx1024x600.png") no-repeat top center;
+	width: 1201px;
+	height: 795px;
+	padding-left: 53px;
+	padding-top: 98px;
+	margin: 20px auto 20px auto;
+}
+
+.app-device-tx1024x600 iframe {
+	width: 1039px;
+	height: 600px;
+}
+
+.app-device-tx1024x768 {
+	background: url("../img/tx1024x768.png") no-repeat top center;
+	width: 100%;
+	height: 948px;
+	padding-top: 90px;
+}
+
+.app-device-tx1024x768 iframe {
+	width: 1039px;
+	height: 768px;
+}
+
+.app-device-tx768x1024 {
+	background: url("../img/tx768x1024.png") no-repeat top center;
+	width: 100%;
+	height: 1204px;
+	padding-top: 90px;
+}
+
+.app-device-tx768x1024 iframe {
+	width: 783px;
+	height: 1024px;
+}
+
+/* Phones */
+.app-device-px480x320 {
+	background: url("../img/px480x320.png") no-repeat top center;
+	width: 100%;
+	height: 390px;
+	padding-top: 35px;
+}
+
+.app-device-px480x320 iframe {
+	width: 495px;
+	height: 320px;
+}
+
+.app-device-px320x480 {
+	background: url("../img/px320x480.png") no-repeat top center;
+	width: 100%;
+	height: 610px;
+	padding-top: 65px;
+}
+
+.app-device-px320x480 iframe {
+	width: 335px;
+	height: 480px;
+}
+
+.app-device-px320x240 {
+	background: url("../img/px320x240.png") no-repeat top center;
+	width: 410px;
+	height: 272px;
+	padding-top: 16px;
+	padding-left: 30px;
+	margin: 20px auto 20px auto;
+}
+
+.app-device-px320x240 iframe {
+	width: 335px;
+	height: 240px;
+}
+
+.app-device-px240x320 {
+	background: url("../img/px240x320.png") no-repeat top center;
+	width: 100%;
+	height: 440px;
+	padding-top: 51px;
+}
+
+.app-device-px240x320 iframe {
+	width: 255px;
+	height: 320px;
+}
+
+.app-device-px515x295 {
+	background: url("../img/px515x295.png") no-repeat top center;
+	width: 623px;
+	height: 335px;
+	padding-top: 20px;
+	padding-left: 30px;
+	margin: 20px auto 20px auto;
+}
+
+.app-device-px515x295 iframe {
+	width: 530px;
+	height: 295px;
+}
+
+.app-device-px295x515 {
+	background: url("../img/px295x515.png") no-repeat top center;
+	width: 100%;
+	height: 653px;
+	padding-top: 62px;
+}
+
+.app-device-px295x515 iframe {
+	width: 310px;
+	height: 515px;
+}
