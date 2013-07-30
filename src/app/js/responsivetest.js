@@ -22,7 +22,7 @@ angular
                 }
                 template += '<li class="dropdown-header">' + $scope.brand.name + '</li>';
                 for (var i in $scope.brand.devices) {
-                    template += '<li><a href="#" ng-click="$parent.switchDevice(' + $scope.brand.devices[i].w + ', ' + $scope.brand.devices[i].h + ')">' + $scope.brand.devices[i].name + '</a></li>';
+                    template += '<li><a href="javascript: void(0);" ng-click="$parent.switchDevice(' + $scope.brand.devices[i].w + ', ' + $scope.brand.devices[i].h + ')">' + $scope.brand.devices[i].name + '</a></li>';
                 }
 
                 var newElement = angular.element(template);
@@ -34,6 +34,8 @@ angular
     .controller('IndexController', function($rootScope, $scope) {
         $scope.w = 1280;
         $scope.h = 800;
+
+        console.log($scope.iframe);
 
         /**
          * Rotate the layout

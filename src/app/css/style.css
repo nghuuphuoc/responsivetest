@@ -5,6 +5,7 @@
 
 .rt-iframe {
     margin-top: 59px;
+    border: 1px solid #ccc;
 }
 
 .rt-iframe iframe {
