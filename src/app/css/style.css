@@ -1,0 +1,14 @@
+/**
+ * @author Nguyen Huu Phuoc <huuphuoc.me>
+ * @copyright (c) 2013 Nguyen Huu Phuoc
+ */
+
+.rt-iframe {
+    margin-top: 59px;
+}
+
+.rt-iframe iframe {
+    border: none;
+    margin: 0;
+    padding: 0;
+}

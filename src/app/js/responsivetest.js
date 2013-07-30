@@ -22,7 +22,7 @@ angular
                 }
                 template += '<li class="dropdown-header">' + $scope.brand.name + '</li>';
                 for (var i in $scope.brand.devices) {
-                    template += '<li><a href="#">' + $scope.brand.devices[i].name + '</a></li>';
+                    template += '<li><a href="#" ng-click="$parent.switchDevice(' + $scope.brand.devices[i].w + ', ' + $scope.brand.devices[i].h + ')">' + $scope.brand.devices[i].name + '</a></li>';
                 }
 
                 var newElement = angular.element(template);
@@ -32,6 +32,29 @@ angular
         }
     })
     .controller('IndexController', function($rootScope, $scope) {
+        $scope.w = 1280;
+        $scope.h = 800;
+
+        /**
+         * Rotate the layout
+         */
+        $scope.rotate = function() {
+            if ($scope.w && $scope.h) {
+                var tmp = $scope.w;
+                $scope.w = $scope.h;
+                $scope.h = tmp;
+            }
+        };
+
+        /**
+         * Switch to given device
+         * @param device
+         */
+        $scope.switchDevice = function(width, height) {
+            $scope.w = width;
+            $scope.h = height;
+        };
+
         /**
          * Supported devices
          * @type {Array}
@@ -117,7 +140,6 @@ angular
                             { name: 'Nook HD+', w: 1920, h: 1280 }
                         ]
                     },
-                    ,
                     {
                         name: 'HP',
                         devices: [

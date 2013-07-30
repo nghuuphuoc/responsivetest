@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link href="app/css/style.css" rel="stylesheet" media="screen">
     <!--[if IE 7]><link rel="stylesheet" href="vendor/font-awesome/css/font-awesome-ie7.min.css"><![endif]-->
     <!--[if lt IE 9]><script src="vendor/jquery/jquery-1.10.1.min.js"></script><![endif]-->
     <!--[if gte IE 9]><!--><script src="vendor/jquery/jquery-2.0.2.min.js"></script><!--<![endif]-->
@@ -38,7 +39,15 @@
             </button>
 
             <div class="nav-collapse collapse rt-navbar-collapse">
-                <ul class="nav navbar-nav">
+                <form class="navbar-form form-inline pull-left col-lg-6">
+                    <input type="text" class="form-control" ng-model="url" style="width: 300px; margin-right: 50px;" ng-model="url" placeholder="Enter the URL" />
+                    <input type="text" class="form-control" ng-model="w" style="width: 60px;" placeholder="w" />
+                    <span style="color: #fff;">x</span>
+                    <input type="text" class="form-control" ng-model="h" style="width: 60px;" placeholder="h" />
+                    <a href="#" class="btn" ng-click="rotate()"><i class="icon-retweet icon-2x icon-white"></i></a>
+                </form>
+
+                <ul class="nav navbar-nav pull-right">
                     <li class="dropdown" ng-repeat="device in SUPPORTED_DEVICES" id="{{ device.type }}">
                         <a href="#{{ device.type }}" class="dropdown-toggle" data-toggle="dropdown" title="{{ device.title }}"><i class="{{ device.icon }} icon-2x"></i></a>
                         <ul class="dropdown-menu">
@@ -50,5 +59,11 @@
         </div>
     </div>
     <!-- :nav -->
+
+    <!-- dest-iframe: -->
+    <div class="rt-iframe" ng-style="{ width: w + 'px', height: h + 'px' }">
+        <iframe></iframe>
+    </div>
+    <!-- :dest-iframe -->
 </body>
 </html>
