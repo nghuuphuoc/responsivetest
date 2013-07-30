@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Testing responsive web design in various resolutions | ResponsiveTest</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10, user-scalable=1">
+	<meta name="description" content="Testing responsive web design in various resolutions">
+	<meta name="keywords" content="test responsive web design, responsive web design, responsive design testing, responsive web design testing, Responsive Web Design Tools">
+	<meta name="author" content="Nguyen Huu Phuoc">
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+	<style type="text/css">
+	body {
+		padding-top: 40px;
+	}
+	</style>
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/css/styles.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body style="display: none">
+	<!-- Top menu -->
+	<div class="navbar navbar-fixed-top app-menu">
+		<div class="navbar-inner">
+			<a class="brand app-responsive-logo" href="http://responsivetest.net" title="Browse a responsive website"></a>
+			
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<div class="nav-collapse">
+					<!-- Navigation -->
+					<ul class="nav">
+						<!-- <li><a href="#">Television</a></li> -->
+						<li class="dropdown" id="menuDesktop">
+							<a href="#menuDesktop" class="dropdown-toggle" data-toggle="dropdown" title="Desktop"><i class="app-icon-desktop"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="dx1024x768">XGA <span>1024 x 768</span></a></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="dx1280x800">WXGA <span>1280 x 800</span></a></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="dx1366x768">Larger screen</a></li>
+							</ul>
+						</li>
+						
+						<li class="dropdown" id="menuTablet">
+							<a href="#menuTablet" class="dropdown-toggle" data-toggle="dropdown" title="Tablet"><i class="app-icon-tablet"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="tx1024x768">iPad Landscape <span>1024 x 768</span></a></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="tx768x1024">iPad Portrait <span>768 x 1024</span></a></li>
+								<li class="divider"></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="tx1024x600">Kindle Fire Landscape <span>1024 x 600</span></a></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="tx600x1024">Kindle Fire Portrait <span>600 x 1024</span></a></li>
+							</ul>
+						</li>
+						
+						<li class="dropdown" id="menuMobile">
+							<a href="#menuMobile" class="dropdown-toggle" data-toggle="dropdown" title="Phone"><i class="app-icon-phone"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="px480x320">iPhone Landscape <span>480 x 320</span></a></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="px320x480">iPhone Portrait <span>320 x 480</span></a></li>
+								<li class="divider"></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="px320x240">Crappy Android Landscape <span>320 x 240</span></a></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="px240x320">Crappy Android Portrait <span>240 x 320</span></a></li>
+								<li class="divider"></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="px515x295">Nicer Android Landscape <span>515 x 295</span></a></li>
+								<li><a href="javascript: void(0);" class="app-device" data-app-device="px295x515">Nicer Android Portrait <span>295 x 515</span></a></li>
+							</ul>
+						</li>
+					</ul>
+					<!-- /Navigation -->
+					
+					<!-- Go form  -->
+					<form class="navbar-form nav-search pull-right">
+						<input id="urlTextBox" class="span2 search-query" size="16" type="text" placeholder="Enter website address" />
+					</form>
+					<!-- /Go form  -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Top menu -->
+	
+	<!-- Website iframe -->
+	<div id="destContainer" class="app-device-wrapper app-device-desktop">
+		<iframe id="destContainerFrame"></iframe>
+	</div>
+	<!-- /Website iframe -->
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/responsive.js"></script>
+	
+	<script type="text/javascript">
+	$(function() {
+		// On Firefox, sometime the body is loaded without styles
+		// So the trick here is that shows the body after loading HTML is completed
+		$("body").show();
+		
+		var responsive = new Responsive("destContainer");
+		if (!responsive.getUrl()) {
+			var urls = [
+				// Set the urls here
+			];
+			responsive.browseRandom(urls);
+		} else {
+			responsive.browse();
+		}
+
+		// Prevent submitting form when press the Enter button
+		$("#urlTextBox").keypress(function(e) {
+			if (e.which == 13) {
+				e.preventDefault();
+				var url = $(this).attr("value");
+				responsive.setUrl(url)
+						  .updateHash()
+						  .browse();
+			}
+		});
+
+		// Switch to other devices handler
+		$(".app-device").click(function() {
+			var s = $(this).attr("data-app-device").split("x");
+			$(this).parents("ul.nav").find("li").removeClass("active");
+			$(this).parents("li").addClass("active");
+			responsive.setDevice(s[0])
+					  .setWidth(s[1])
+					  .setHeight(s[2])
+					  .updateHash()
+					  .browse();
+		});
+	});
+	</script>
+</body>
+</html>
