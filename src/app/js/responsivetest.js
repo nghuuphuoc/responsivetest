@@ -15,7 +15,7 @@ angular
             },
             // The brand.html consists of nothing but one empty element
             templateUrl: 'app/views/brand.html',
-            link: function ($scope, $element, attrs) {
+            link: function ($scope, $element, $attrs) {
                 var template = '';
                 if ($scope.index > 0) {
                     template += '<li class="divider"></li>';
@@ -31,11 +31,24 @@ angular
             }
         }
     })
+    .directive('rtResizable', function() {
+        return {
+            restrict: 'A',
+            link: function ($scope, $element, $attrs) {
+                var parent = $scope.$parent;
+                $element.resizable({
+                    resize: function(event, ui) {
+                        $scope.w = ui.size.width;
+                        $scope.h = ui.size.height;
+                        parent.$apply();
+                    }
+                });
+            }
+        }
+    })
     .controller('IndexController', function($rootScope, $scope) {
-        $scope.w = 1280;
-        $scope.h = 800;
-
-        console.log($scope.iframe);
+        $scope.w = 320;
+        $scope.h = 480;
 
         /**
          * Rotate the layout
