@@ -2,7 +2,7 @@
 <html ng-app="ResponsiveTest">
 <head>
     <!--
-    /*
+    /**
      * ResponsiveTest
      * Created by Nguyen Huu Phuoc <phuoc@huuphuoc.me>, @nghuuphuoc
      * (c) 2013, APL Solutions.
@@ -18,7 +18,7 @@
     <!--[if gte IE 9]><!--><script src="vendor/jquery/jquery-2.0.2.min.js"></script><!--<![endif]-->
     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="vendor/angular/angular.1.0.7.min.js"></script>
-    <script type="text/javascript" src="asset/js/responsivetest.js"></script>
+    <script type="text/javascript" src="app/js/responsivetest.js"></script>
     <!--[if lte IE 8]>
     <script type="text/javascript">
     document.createElement('rt-brand');
@@ -42,9 +42,7 @@
                     <li class="dropdown" ng-repeat="device in SUPPORTED_DEVICES" id="{{ device.type }}">
                         <a href="#{{ device.type }}" class="dropdown-toggle" data-toggle="dropdown" title="{{ device.title }}"><i class="{{ device.icon }} icon-2x"></i></a>
                         <ul class="dropdown-menu">
-                            <li ng-repeat="brand in device.brands">
-                                <rt-brand ng-model="brand"></rt-brand>
-                            </li>
+                            <rt-brand ng-repeat="b in device.brands" brand="b" index="$index"></rt-brand>
                         </ul>
                     </li>
                 </ul>
