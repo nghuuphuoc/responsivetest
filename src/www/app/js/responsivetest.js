@@ -16,15 +16,28 @@ angular
             },
             // templateUrl: 'app/views/device.html',
             link: function($scope, $element, $attrs) {
-                // TODO: Move this to template
                 var template = '<ul class="dropdown-menu">', brands = $scope.brands, numBrands = brands.length;
+
+                $scope.openStatus     = new Array(numBrands);
+                $scope.openStatus[0]  = true;
+                $scope.lastHoverBrand = 0;
+
+                $scope.toggleBrand = function(i) {
+                    $scope.openStatus[i] = true;
+                    if (i != $scope.lastHoverBrand) {
+                        $scope.openStatus[$scope.lastHoverBrand] = false;
+                        $scope.lastHoverBrand = i;
+                    }
+                };
+
+                // TODO: Move this to template
                 for (var i = 0; i < numBrands; i++) {
                     if (i > 0) {
                         template += '<li class="divider"></li>';
                     }
-                    template += '<li class="dropdown-header">' + brands[i].name + '</li>';
+                    template += '<li class="dropdown-header" ng-mouseover="toggleBrand(' + i + ')">' + brands[i].name + '</li>';
                     for (var j in brands[i].devices) {
-                        template += '<li><a href="javascript: void(0);" ng-click="$parent.resizeTo(' + brands[i].devices[j].w + ', ' + brands[i].devices[j].h + ')">' + brands[i].devices[j].name;
+                        template += '<li ng-show="openStatus[' + i + ']"><a href="javascript: void(0);" ng-click="$parent.resizeTo(' + brands[i].devices[j].w + ', ' + brands[i].devices[j].h + ')">' + brands[i].devices[j].name;
 
                         if (brands[i].devices[j].inch) {
                             template += ' <small></small><span>' + brands[i].devices[j].inch + '"</span>';
@@ -114,7 +127,9 @@ angular
                     $scope.url = response.randomUrls[Math.floor(Math.random() * response.randomUrls.length)];
                 }
 
-                $scope.frameSrc = $scope.normalizeUrl($scope.url);
+                if ($scope.url) {
+                    $scope.frameSrc = $scope.normalizeUrl($scope.url);
+                }
                 $scope.loading  = false;
             });
 
@@ -171,7 +186,7 @@ angular
          * @return {String}
          */
         $scope.normalizeUrl = function(url) {
-            if ('http://' == url.substr(0, 7) || 'https://' == url.substr(0, 8)) {
+            if (url && 'http://' == url.substr(0, 7) || 'https://' == url.substr(0, 8)) {
                 return url;
             } else {
                 return 'http://' + url;

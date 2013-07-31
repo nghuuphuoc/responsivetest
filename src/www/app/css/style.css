@@ -17,14 +17,14 @@
     z-index: 1000;
 }
 
-.rt-navbar .nav li a {
+.rt-navbar .nav li {
     position: relative;
 }
-.rt-navbar .nav li a small {
+.rt-navbar .nav li small {
     display: inline-block;
     width: 30px;
 }
-.rt-navbar .nav li a span {
+.rt-navbar .nav li span {
     position: absolute;
     right: 10px;
 }
