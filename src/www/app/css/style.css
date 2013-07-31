@@ -8,8 +8,13 @@
     border-bottom: 1px solid #c0c0c0;
 }
 
-.rt-btn-link, .rt-btn-link:hover {
-    color: #777;
+.rt-ruler {
+    background: url('../img/ruler.png') top left no-repeat;
+    position: fixed;
+    top: 59px;
+    width: 100%;
+    height: 40px;
+    z-index: 1000;
 }
 
 .rt-navbar .nav li a {

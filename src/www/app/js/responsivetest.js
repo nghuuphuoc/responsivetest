@@ -161,12 +161,11 @@ angular
          * Make a screen shot for current URL
          */
         $scope.capture = function(evt) {
-            //if (angular.isNumber($scope.w) && angular.isNumber($scope.h) && $scope.url) {
-                console.log('submit form');
+            if (angular.isNumber($scope.w) && angular.isNumber($scope.h) && $scope.url) {
                 // Submit form
                 var form = evt.target.form;
                 form.submit();
-            //}
+            }
         };
 
         // --- Private methods ---
