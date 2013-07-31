@@ -114,14 +114,11 @@ angular
                     $scope.url = response.randomUrls[Math.floor(Math.random() * response.randomUrls.length)];
                 }
 
-                $scope.frameSrc = $scope.url;
+                $scope.frameSrc = $scope.normalizeUrl($scope.url);
                 $scope.loading  = false;
             });
 
-            $scope.$watch('w', function() {
-                $scope.updateHash();
-            });
-            $scope.$watch('h', function() {
+            $scope.$watch('w + h + url', function() {
                 $scope.updateHash();
             });
         };
@@ -153,7 +150,7 @@ angular
          */
         $scope.onKeyup = function(key) {
             if (key == 13) {
-                $scope.frameSrc = $scope.url;
+                $scope.frameSrc = $scope.normalizeUrl($scope.url);
             }
         };
 
@@ -168,13 +165,26 @@ angular
             }
         };
 
+        /**
+         * Normalize input URL
+         * @param {String} url
+         * @return {String}
+         */
+        $scope.normalizeUrl = function(url) {
+            if ('http://' == url.substr(0, 7) || 'https://' == url.substr(0, 8)) {
+                return url;
+            } else {
+                return 'http://' + url;
+            }
+        };
+
         // --- Private methods ---
 
         /**
          * Update the location hash when any one of URL, width, height are changed
          */
         $scope.updateHash = function() {
-            if (angular.isNumber($scope.w) && angular.isNumber($scope.h) && $scope.url) {
+            if ($scope.w && $scope.h && $scope.url) {
                 // Update the location hash
                 window.location.hash = '#u=' + [$scope.url, $scope.w, $scope.h].join('|');
             }
