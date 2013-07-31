@@ -11,17 +11,25 @@
     <meta charset="utf-8">
     <title>Testing responsive web design in various resolutions | ResponsiveTest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Testing responsive web design in various resolutions">
+    <meta name="keywords" content="test responsive web design, responsive web design, responsive design testing, responsive web design testing, Responsive Web Design Tools">
+    <meta name="author" content="Nguyen Huu Phuoc (@nghuuphuoc)">
+    <meta name="copyright" content="APL Solutions">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
     <link href="vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" media="screen">
     <link href="app/css/style.css" rel="stylesheet" media="screen">
     <!--[if IE 7]><link rel="stylesheet" href="vendor/font-awesome/css/font-awesome-ie7.min.css"><![endif]-->
+
     <!--[if lt IE 9]><script src="vendor/jquery/jquery-1.10.1.min.js"></script><![endif]-->
     <!--[if gte IE 9]><!--><script src="vendor/jquery/jquery-2.0.2.min.js"></script><!--<![endif]-->
     <script type="text/javascript" src="vendor/jquery-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="vendor/angular/angular.1.0.7.min.js"></script>
     <script type="text/javascript" src="app/js/responsivetest.js"></script>
+
     <!--[if lte IE 8]>
     <script type="text/javascript">
     document.createElement('rt-device');
@@ -30,9 +38,9 @@
 </head>
 <body ng-controller="IndexController" ng-init="init()">
     <!-- nav: -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">Responsive Test</a>
+            <a class="navbar-brand" href="/"><img src="app/img/logo.png" alt="Responsive Test" /></a>
 
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".rt-navbar-collapse">
                 <span class="icon-bar"></span>
@@ -41,12 +49,12 @@
             </button>
 
             <div class="nav-collapse collapse rt-navbar-collapse rt-navbar">
-                <form class="navbar-form form-inline pull-left col-lg-6">
-                    <input type="text" class="form-control" ng-model="url" style="width: 300px; margin-right: 50px;" ng-model="url" placeholder="Enter the URL" rt-keyup="onKeyup" />
-                    <input type="text" class="form-control" ng-model="w" style="width: 60px;" placeholder="w" />
-                    <span style="color: #fff;">x</span>
-                    <input type="text" class="form-control" ng-model="h" style="width: 60px;" placeholder="h" />
-                    <a href="javascript: void(0);" class="btn" ng-click="rotate()"><i class="icon-retweet icon-2x icon-white"></i></a>
+                <form class="navbar-form form-inline pull-left col-lg-8">
+                    <input type="text" class="form-control" ng-model="url" name="url" style="width: 250px; margin-right: 20px;" ng-model="url" placeholder="Enter the URL" rt-keyup="onKeyup" />
+                    <input type="text" class="form-control" ng-model="w" name="w" style="width: 60px;" placeholder="w" />
+                    <span style="color: #777;">x</span>
+                    <input type="text" class="form-control" ng-model="h" name="h" style="width: 60px;" placeholder="h" />
+                    <button type="button" class="btn btn-success" ng-click="rotate()"><i class="icon-retweet"></i> Rotate</button>
                 </form>
 
                 <ul class="nav navbar-nav pull-right">
@@ -61,9 +69,20 @@
     <!-- :nav -->
 
     <!-- dest-iframe: -->
-    <div class="rt-iframe" ng-style="{ width: w + 'px', height: h + 'px' }" rt-resizable ng-show="!loading">
+    <div class="rt-iframe" ng-style="{ width: w + 'px', height: h + 'px' }" rt-resizable ng-show="!loading" id="iframe">
         <iframe ng-src="{{ frameSrc }}"></iframe>
     </div>
     <!-- :dest-iframe -->
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-4752571-14']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
 </body>
 </html>

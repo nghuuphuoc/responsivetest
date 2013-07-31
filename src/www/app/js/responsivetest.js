@@ -121,6 +121,9 @@ angular
             $scope.$watch('w', function() {
                 $scope.updateHash();
             });
+            $scope.$watch('h', function() {
+                $scope.updateHash();
+            });
         };
 
         /**
@@ -152,6 +155,18 @@ angular
             if (key == 13) {
                 $scope.frameSrc = $scope.url;
             }
+        };
+
+        /**
+         * Make a screen shot for current URL
+         */
+        $scope.capture = function(evt) {
+            //if (angular.isNumber($scope.w) && angular.isNumber($scope.h) && $scope.url) {
+                console.log('submit form');
+                // Submit form
+                var form = evt.target.form;
+                form.submit();
+            //}
         };
 
         // --- Private methods ---

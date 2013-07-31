@@ -3,6 +3,15 @@
  * @copyright (c) 2013 Nguyen Huu Phuoc
  */
 
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.rt-btn-link, .rt-btn-link:hover {
+    color: #777;
+}
+
 .rt-navbar .nav li a {
     position: relative;
 }
