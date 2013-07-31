@@ -1,6 +1,8 @@
 /**
  * @author Nguyen Huu Phuoc <huuphuoc.me>
  * @copyright (c) 2013 Nguyen Huu Phuoc
+ *
+ * Follow me on Twitter (@nghuuphuoc)
  */
 
 angular
@@ -95,11 +97,29 @@ angular
         $scope.init = function() {
             $http.get('data/devices.json').success(function(response) {
                 $scope.SUPPORTED_DEVICES = response.supportedDevices;
-                // Get the random URL
-                $scope.url      = response.randomUrls[Math.floor(Math.random() * response.randomUrls.length)];
-                $scope.frameSrc = $scope.url;
 
+                // Extract the URL and size from location hash if they are available
+                if (window.location.hash && '#u=' == window.location.hash.substr(0, 3)) {
+                    var query = window.location.hash.substring(3);
+                    if (query.indexOf('|') == -1) {
+                        $scope.url = query;
+                    } else {
+                        var array  = query.split('|');
+                        $scope.url = array[0];
+                        $scope.w   = array[1];
+                        $scope.h   = array[2];
+                    }
+                } else {
+                    // Get the random URL
+                    $scope.url = response.randomUrls[Math.floor(Math.random() * response.randomUrls.length)];
+                }
+
+                $scope.frameSrc = $scope.url;
                 $scope.loading  = false;
+            });
+
+            $scope.$watch('w', function() {
+                $scope.updateHash();
             });
         };
 
@@ -131,6 +151,18 @@ angular
         $scope.onKeyup = function(key) {
             if (key == 13) {
                 $scope.frameSrc = $scope.url;
+            }
+        };
+
+        // --- Private methods ---
+
+        /**
+         * Update the location hash when any one of URL, width, height are changed
+         */
+        $scope.updateHash = function() {
+            if (angular.isNumber($scope.w) && angular.isNumber($scope.h) && $scope.url) {
+                // Update the location hash
+                window.location.hash = '#u=' + [$scope.url, $scope.w, $scope.h].join('|');
             }
         };
     });
