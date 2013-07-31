@@ -84,10 +84,24 @@ angular
     })
     .controller('IndexController', function($rootScope, $scope, $http) {
         $scope.loading  = true;
-        $scope.w        = 320;
-        $scope.h        = 480;
+        $scope.w        = 1024;
+        $scope.h        = 768;
         $scope.url      = null;
         $scope.frameSrc = null;
+
+        /**
+         * Init the controller
+         */
+        $scope.init = function() {
+            $http.get('data/devices.json').success(function(response) {
+                $scope.SUPPORTED_DEVICES = response.supportedDevices;
+                // Get the random URL
+                $scope.url      = response.randomUrls[Math.floor(Math.random() * response.randomUrls.length)];
+                $scope.frameSrc = $scope.url;
+
+                $scope.loading  = false;
+            });
+        };
 
         /**
          * Rotate the layout
@@ -118,15 +132,5 @@ angular
             if (key == 13) {
                 $scope.frameSrc = $scope.url;
             }
-        };
-
-        /**
-         * Init the controller
-         */
-        $scope.init = function() {
-            $http.get('data/devices.json').success(function(response) {
-                $scope.SUPPORTED_DEVICES = response.supportedDevices;
-                $scope.loading = false;
-            });
         };
     });

@@ -1,6 +1,9 @@
 {
     "lastUpdated": "2013-07-31",
     "lastUpdatedBy": "Nguyen Huu Phuoc <phuoc@huuphuoc.me>",
+    "randomUrls": [
+        "http://www.zootemplate.com"
+    ],
     "supportedDevices": [
         {
             "type": "phone",
