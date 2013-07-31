@@ -1,0 +1,262 @@
+{
+    "lastUpdated": "2013-07-31",
+    "lastUpdatedBy": "Nguyen Huu Phuoc <phuoc@huuphuoc.me>",
+    "supportedDevices": [
+        {
+            "type": "phone",
+            "title": "Phone",
+            "icon": "icon-mobile-phone",
+            "brands": [
+                {
+                    "name": "Apple",
+                    "devices": [
+                        { "name": "iPhone",   "w": 320, "h": 480,  "inch": "3.5" },
+                        { "name": "iPhone 4", "w": 640, "h": 960,  "inch": "3.5" },
+                        { "name": "iPhone 5", "w": 640, "h": 1136, "inch": "4.0" }
+                    ]
+                },
+                {
+                    "name": "BlackBerry",
+                    "devices": [
+                        { "name": "Bold 9930",  "w": 480,  "h": 640, "inch": "2.8" },
+                        { "name": "Q10",        "w": 720,  "h": 720, "inch": "3.1" },
+                        { "name": "Torch 9810", "w": 480,  "h": 640, "inch": "3.2" },
+                        { "name": "Torch 9850", "w": 400,  "h": 800, "inch": "3.7" },
+                        { "name": "Z10",        "w": 1280, "h": 768, "inch": "4.2" }
+                    ]
+                },
+                {
+                    "name": "Samsung",
+                    "devices": [
+                        { "name": "Samsung S2",    "w": 480,  "h": 800,  "inch": "4.5" },
+                        { "name": "Samsung S3",    "w": 720,  "h": 1280, "inch": "4.8" },
+                        { "name": "Samsung S4",    "w": 1080, "h": 1920, "inch": "5" }
+                    ]
+                },
+                {
+                    "name": "HTC",
+                    "devices": [
+                        { "name": "Desire 200", "w": 320,  "h": 480,  "inch": "3.5" },
+                        { "name": "Desire X",   "w": 480,  "h": 800,  "inch": "4.0" },
+                        { "name": "Desire SV",  "w": 480,  "h": 800,  "inch": "4.3" },
+                        { "name": "Sensation",  "w": 540,  "h": 960,  "inch": "4.5" },
+                        { "name": "One",        "w": 1080, "h": 1920, "inch": "4.7" }
+                    ]
+                },
+                {
+                    "name": "LG",
+                    "devices": [
+                        { "name": "Optimus L5",    "w": 320,  "h": 480,  "inch": "4.0" },
+                        { "name": "Optimus 3D",    "w": 480,  "h": 800,  "inch": "4.3" },
+                        { "name": "Optimus 4X HD", "w": 720,  "h": 1280, "inch": "4.7" },
+                        { "name": "Optimus G Pro", "w": 1080, "h": 1920, "inch": "5.5" }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tablet",
+            "title": "Tablet",
+            "icon": "icon-tablet",
+            "brands": [
+                {
+                    "name": "Apple",
+                    "devices": [
+                        { "name": "iPad Mini", "w": 1024, "h": 768,  "inch": "7.9" },
+                        { "name": "iPad 2",    "w": 1024, "h": 768,  "inch": "9.7" },
+                        { "name": "iPad 3",    "w": 2048, "h": 1536, "inch": "9.7" },
+                        { "name": "iPad 4",    "w": 2048, "h": 1536, "inch": "9.7" }
+                    ]
+                },
+                {
+                    "name": "Amazon",
+                    "devices": [
+                        { "name": "Kindle Fire",        "w": 1024, "h": 600,  "inch": "7" },
+                        { "name": "Kindle Fire HD 7",   "w": 1280, "h": 800,  "inch": "7" },
+                        { "name": "Kindle Fire HD 8.9", "w": 1920, "h": 1200, "inch": "8.9" }
+                    ]
+                },
+                {
+                    "name": "Asus",
+                    "devices": [
+                        { "name": "Google Nexus 7",               "w": 1280, "h": 800,  "inch": "7" },
+                        { "name": "Transformer Pad TF300",        "w": 1280, "h": 800,  "inch": "10.1" },
+                        { "name": "Transformer Pad Infinity",     "w": 1920, "h": 1200, "inch": "10.1" },
+                        { "name": "New Transformer Pad Infinity", "w": 2560, "h": 1600, "inch": "10.1" }
+                    ]
+                },
+                {
+                    "name": "Barnes & Noble",
+                    "devices": [
+                        { "name": "Nook",     "w": 1024, "h": 600,  "inch": "7" },
+                        { "name": "Nook HD",  "w": 1440, "h": 900,  "inch": "7" },
+                        { "name": "Nook HD+", "w": 1920, "h": 1280, "inch": "9.0" }
+                    ]
+                },
+                {
+                    "name": "HP",
+                    "devices": [
+                        { "name": "Slate 7",  "w": 1024, "h": 600, "inch": "8.9" },
+                        { "name": "Touchpad", "w": 1024, "h": 768, "inch": "9.7" }
+                    ]
+                },
+                {
+                    "name": "Microsoft",
+                    "devices": [
+                        { "name": "Surface RT",  "w": 1366, "h": 768,  "inch": "10.6" },
+                        { "name": "Surface Pro", "w": 1920, "h": 1080, "inch": "10.6" }
+                    ]
+                },
+                {
+                    "name": "Samsung",
+                    "devices": [
+                        { "name": "Galaxy Note",     "w": 800,  "h": 1280, "inch": "5.29" },
+                        { "name": "Galaxy Note 2",   "w": 720,  "h": 1280, "inch": "5.55" },
+                        { "name": "Galaxy Tab 7.0",  "w": 1024, "h": 600,  "inch": "7" },
+                        { "name": "Galaxy Tab 7.7",  "w": 1280, "h": 800,  "inch": "7.7" },
+                        { "name": "Galaxy Tab 8.9",  "w": 1280, "h": 800,  "inch": "8.9" },
+                        { "name": "Galaxy Tab 10.1", "w": 1280, "h": 800,  "inch": "10.1" },
+                        { "name": "Google Nexus 10", "w": 2560, "h": 1600, "inch": "10.1" }
+                    ]
+                },
+                {
+                    "name": "Sony",
+                    "devices": [
+                        { "name": "Xperia Tablet S",  "w": 1280, "h": 800, "inch": "9.4" },
+                        { "name": "Xperia Tablet Z", "w": 1920, "h": 1200, "inch": "10.1" }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "laptop",
+            "title": "Laptop",
+            "icon": "icon-laptop",
+            "brands": [
+                {
+                    "name": "Apple",
+                    "devices": [
+                        { "name": "11' Macbook Air",         "w": 1366, "h": 768,  "inch": "11" },
+                        { "name": "13' Macbook Air",         "w": 1440, "h": 900,  "inch": "13" },
+                        { "name": "15' Macbook Pro",         "w": 1440, "h": 900,  "inch": "15" },
+                        { "name": "15' Macbook Pro Restina", "w": 2880, "h": 1800, "inch": "15" }
+                    ]
+                },
+                {
+                    "name": "Acer",
+                    "devices": [
+                        { "name": "Aspire M5-583P", "w": 1366, "h": 768,  "inch": "15.6" },
+                        { "name": "Aspire V7",     "w": 1920,  "h": 1080, "inch": "14" }
+                    ]
+                },
+                {
+                    "name": "Asus",
+                    "devices": [
+                        { "name": "Zenbook Infinity", "w": 2560, "h": 1440, "inch": "13.3" },
+                        { "name": "Taichi",           "w": 1920, "h": 1080, "inch": "13.3" },
+                        { "name": "VivoBook S400",    "w": 1366, "h": 768,  "inch": "14.1" },
+                        { "name": "G75VW",            "w": 1600, "h": 900,  "inch": "17.3" }
+                    ]
+                },
+                {
+                    "name": "Dell",
+                    "devices": [
+                        { "name": "XPS 11",       "w": 2560, "h": 1440, "inch": "11.6" },
+                        { "name": "XPS 12",       "w": 1920, "h": 1080, "inch": "12.5" },
+                        { "name": "Inspiron 15R", "w": 1366, "h": 768,  "inch": "15.6" },
+                        { "name": "Inspiron 17R", "w": 1600, "h": 900,  "inch": "17.3" }
+                    ]
+                },
+                {
+                    "name": "HP",
+                    "devices": [
+                        { "name": "Envy Touchsmart 14", "w": 3200, "h": 1800, "inch": "14" },
+                        { "name": "Envy 15",            "w": 1366, "h": 768,  "inch": "15.6" },
+                        { "name": "Envy 17",            "w": 1920, "h": 1080, "inch": "17.3" }
+                    ]
+                },
+                {
+                    "name": "Lenovo",
+                    "devices": [
+                        { "name": "ThinkPad T440s",     "w": 1600, "h": 900, "inch": "14" },
+                        { "name": "IdeaPad S500 Touch", "w": 1366, "h": 768, "inch": "15.6" }
+                    ]
+                },
+                {
+                    "name": "Sony",
+                    "devices": [
+                        { "name": "VAIO Pro 13",      "w": 1920, "h": 1080, "inch": "13.3" },
+                        { "name": "VAIO E Series 14", "w": 1366, "h": 768,  "inch": "14" },
+                        { "name": "VAIO Fit E 14",    "w": 1600, "h": 900,  "inch": "14" }
+                    ]
+                },
+                {
+                    "name": "Toshiba",
+                    "devices": [
+                        { "name": "Kirabook",        "w": 2560, "h": 1440, "inch": "13.3" },
+                        { "name": "Satellite P845t", "w": 1366, "h": 768,  "inch": "14" },
+                        { "name": "Qosmio X75",      "w": 1920, "h": 1080, "inch": "17.3" },
+                        { "name": "Qosmio X870",     "w": 1600, "h": 900,  "inch": "17.3" }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "desktop",
+            "title": "Desktop",
+            "icon": "icon-desktop",
+            "brands": [
+                {
+                    "name": "Apple",
+                    "devices": [
+                        { "name": "21.5' iMac", "w": 1920, "h": 1080, "inch": "21.5" },
+                        { "name": "27' iMac",   "w": 2560, "h": 1440, "inch": "27" }
+                    ]
+                },
+                {
+                    "name": "Acer",
+                    "devices": [
+                        { "name": "Aspire ZC-605", "w": 1600, "h": 900,  "inch": "19.5" },
+                        { "name": "Aspire 7600U",  "w": 1920, "h": 1080, "inch": "27" }
+                    ]
+                },
+                {
+                    "name": "Asus",
+                    "devices": [
+                        { "name": "ET2311", "w": 1920, "h": 1080, "inch": "23" },
+                        { "name": "ET2702", "w": 2560, "h": 1440, "inch": "27" }
+                    ]
+                },
+                {
+                    "name": "Dell",
+                    "devices": [
+                        { "name": "Inspiron One 20", "w": 1600, "h": 900,  "inch": "20" },
+                        { "name": "Inspiron One 23", "w": 1920, "h": 1080, "inch": "23" },
+                        { "name": "XPS One 24",      "w": 1920, "h": 1200, "inch": "24" },
+                        { "name": "XPS One 27",      "w": 2560, "h": 1440, "inch": "27" }
+                    ]
+                },
+                {
+                    "name": "HP",
+                    "devices": [
+                        { "name": "Envy Rove 20", "w": 1600, "h": 900,  "inch": "20" },
+                        { "name": "Pavilion 23",  "w": 1920, "h": 1080, "inch": "23" }
+                    ]
+                },
+                {
+                    "name": "Lenovo",
+                    "devices": [
+                        { "name": "IdeaCentre Horizon", "w": 1920, "h": 1080, "inch": "27" }
+                    ]
+                },
+                {
+                    "name": "Sony",
+                    "devices": [
+                        { "name": "VAIO Tap 20", "w": 1600, "h": 900,  "inch": "20" },
+                        { "name": "VAIO L",      "w": 1920, "h": 1080, "inch": "24" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

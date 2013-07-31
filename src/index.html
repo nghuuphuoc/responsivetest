@@ -24,11 +24,11 @@
     <script type="text/javascript" src="app/js/responsivetest.js"></script>
     <!--[if lte IE 8]>
     <script type="text/javascript">
-    document.createElement('rt-brand');
+    document.createElement('rt-device');
     </script>
     <![endif]-->
 </head>
-<body ng-controller="IndexController">
+<body ng-controller="IndexController" ng-init="init()">
     <!-- nav: -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -40,9 +40,9 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <div class="nav-collapse collapse rt-navbar-collapse">
+            <div class="nav-collapse collapse rt-navbar-collapse rt-navbar">
                 <form class="navbar-form form-inline pull-left col-lg-6">
-                    <input type="text" class="form-control" ng-model="url" style="width: 300px; margin-right: 50px;" ng-model="url" placeholder="Enter the URL" />
+                    <input type="text" class="form-control" ng-model="url" style="width: 300px; margin-right: 50px;" ng-model="url" placeholder="Enter the URL" rt-keyup="onKeyup" />
                     <input type="text" class="form-control" ng-model="w" style="width: 60px;" placeholder="w" />
                     <span style="color: #fff;">x</span>
                     <input type="text" class="form-control" ng-model="h" style="width: 60px;" placeholder="h" />
@@ -52,9 +52,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown" ng-repeat="device in SUPPORTED_DEVICES" id="{{ device.type }}">
                         <a href="#{{ device.type }}" class="dropdown-toggle" data-toggle="dropdown" title="{{ device.title }}"><i class="{{ device.icon }} icon-2x"></i></a>
-                        <ul class="dropdown-menu">
-                            <rt-brand ng-repeat="b in device.brands" brand="b" index="$index"></rt-brand>
-                        </ul>
+                        <rt-device brands="device.brands"></rt-device>
                     </li>
                 </ul>
             </div>
@@ -63,8 +61,8 @@
     <!-- :nav -->
 
     <!-- dest-iframe: -->
-    <div class="rt-iframe" ng-style="{ width: w + 'px', height: h + 'px' }" rt-resizable>
-        <iframe></iframe>
+    <div class="rt-iframe" ng-style="{ width: w + 'px', height: h + 'px' }" rt-resizable ng-show="!loading">
+        <iframe ng-src="{{ frameSrc }}"></iframe>
     </div>
     <!-- :dest-iframe -->
 </body>

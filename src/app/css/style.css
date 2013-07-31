@@ -3,6 +3,18 @@
  * @copyright (c) 2013 Nguyen Huu Phuoc
  */
 
+.rt-navbar .nav li a {
+    position: relative;
+}
+.rt-navbar .nav li a small {
+    display: inline-block;
+    width: 30px;
+}
+.rt-navbar .nav li a span {
+    position: absolute;
+    right: 10px;
+}
+
 .rt-iframe {
     margin-top: 59px;
     border: 1px solid #ccc;
@@ -12,4 +24,6 @@
     border: none;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
 }

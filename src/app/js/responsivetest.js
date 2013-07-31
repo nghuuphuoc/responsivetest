@@ -5,25 +5,32 @@
 
 angular
     .module('ResponsiveTest', [])
-    .directive('rtBrand', function($compile) {
+    .directive('rtDevice', function($compile) {
         return {
             restrict: 'EA',
             replace: true,
             scope: {
-                brand: '=',
-                index: '='
+                brands: '='
             },
-            // The brand.html consists of nothing but one empty element
-            templateUrl: 'app/views/brand.html',
-            link: function ($scope, $element, $attrs) {
-                var template = '';
-                if ($scope.index > 0) {
-                    template += '<li class="divider"></li>';
+            // templateUrl: 'app/views/device.html',
+            link: function($scope, $element, $attrs) {
+                // TODO: Move this to template
+                var template = '<ul class="dropdown-menu">', brands = $scope.brands, numBrands = brands.length;
+                for (var i = 0; i < numBrands; i++) {
+                    if (i > 0) {
+                        template += '<li class="divider"></li>';
+                    }
+                    template += '<li class="dropdown-header">' + brands[i].name + '</li>';
+                    for (var j in brands[i].devices) {
+                        template += '<li><a href="javascript: void(0);" ng-click="$parent.resizeTo(' + brands[i].devices[j].w + ', ' + brands[i].devices[j].h + ')">' + brands[i].devices[j].name;
+
+                        if (brands[i].devices[j].inch) {
+                            template += ' <small></small><span>' + brands[i].devices[j].inch + '"</span>';
+                        }
+                        template += '</a></li>';
+                    }
                 }
-                template += '<li class="dropdown-header">' + $scope.brand.name + '</li>';
-                for (var i in $scope.brand.devices) {
-                    template += '<li><a href="javascript: void(0);" ng-click="$parent.switchDevice(' + $scope.brand.devices[i].w + ', ' + $scope.brand.devices[i].h + ')">' + $scope.brand.devices[i].name + '</a></li>';
-                }
+                template += '</ul>';
 
                 var newElement = angular.element(template);
                 $compile(newElement)($scope);
@@ -34,7 +41,7 @@ angular
     .directive('rtResizable', function() {
         return {
             restrict: 'A',
-            link: function ($scope, $element, $attrs) {
+            link: function($scope, $element, $attrs) {
                 var parent = $scope.$parent;
                 $element.resizable({
                     resize: function(event, ui) {
@@ -46,9 +53,41 @@ angular
             }
         }
     })
-    .controller('IndexController', function($rootScope, $scope) {
-        $scope.w = 320;
-        $scope.h = 480;
+    .directive('rtKeyup', function() {
+        // Handle the onKeyUp event
+        // Store the URL when user press the Enter key
+        return function(scope, element, attrs) {
+            var keyupHandler = scope.$eval(attrs.rtKeyup);
+            element.bind('keyup', function(evt) {
+                scope.$apply(function() {
+                    keyupHandler(evt.which);
+                });
+            });
+        }
+    })
+    .config(function($httpProvider) {
+        var numLoadings = 0;
+        var loadingScreen = $('<div style="position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%;"><div style="position: absolute; top: 50%; left: 0; width: 100%;"><div class="row"><div class="col-lg-6 col-offset-3"><div class="progress progress-striped active"><div class="progress-bar" style="width: 100%;"></div></div></div></div></div></div>').appendTo($('body')).hide();
+        $httpProvider.responseInterceptors.push(function() {
+            return function(promise) {
+                numLoadings++;
+                loadingScreen.show();
+                var hide = function(r) {
+                    if (!(--numLoadings)) {
+                        loadingScreen.hide();
+                    }
+                    return r;
+                };
+                return promise.then(hide, hide);
+            };
+        });
+    })
+    .controller('IndexController', function($rootScope, $scope, $http) {
+        $scope.loading  = true;
+        $scope.w        = 320;
+        $scope.h        = 480;
+        $scope.url      = null;
+        $scope.frameSrc = null;
 
         /**
          * Rotate the layout
@@ -62,181 +101,32 @@ angular
         };
 
         /**
-         * Switch to given device
-         * @param device
+         * Switch to given size
+         * @param {int} width
+         * @param {int} height
          */
-        $scope.switchDevice = function(width, height) {
+        $scope.resizeTo = function(width, height) {
             $scope.w = width;
             $scope.h = height;
         };
 
         /**
-         * Supported devices
-         * @type {Array}
+         * Handle the keyup event of URL field
+         * @param {int} key The key code
          */
-        $scope.SUPPORTED_DEVICES = [
-            {
-                type: 'phone',
-                title: 'Phone',
-                icon: 'icon-mobile-phone',
-                brands: [
-                    {
-                        name: 'Apple',
-                        devices: [
-                            { name: 'iPhone', w: 320, h: 480 },
-                            { name: 'iPhone 4', w: 640, h: 960 },
-                            { name: 'iPhone 5', w: 640, h: 1136 }
-                        ]
-                    },
-                    {
-                        name: 'BlackBerry',
-                        devices: [
-                            { name: 'Torch', w: 480, h: 800 },
-                            { name: 'Bold Touch', w: 480, h: 640 }
-                        ]
-                    },
-                    {
-                        name: 'Samsung',
-                        devices: [
-                            { name: 'Samsung S2', w: 480, h: 800 },
-                            { name: 'Samsung S3', w: 720, h: 1280 },
-                            { name: 'Galaxy Note', w: 720, h: 1280 }
-                        ]
-                    },
-                    {
-                        name: 'HTC',
-                        devices: [
-                            { name: 'Desire', w: 320, h: 533 },
-                            { name: 'One X', w: 360, h: 640 },
-                            { name: 'Touch HD', w: 480, h: 800 },
-                            { name: 'Sensation', w: 540, h: 960 }
-                        ]
-                    },
-                    {
-                        name: 'LG',
-                        devices: [
-                            { name: 'Optimus 3D', w: 480, h: 800 },
-                            { name: 'Optimus 4X HD', w: 720, h: 1280 }
-                        ]
-                    }
-                ]
-            },
-            {
-                type: 'tablet',
-                title: 'Tablet',
-                icon: 'icon-tablet',
-                brands: [
-                    {
-                        name: 'Apple',
-                        devices: [
-                            { name: 'iPad Mini', w: 1024, h: 768 },
-                            { name: 'iPad 2', w: 1024, h: 768 },
-                            { name: 'iPad 3', w: 2048, h: 1536 }
-                        ]
-                    },
-                    {
-                        name: 'Amazon',
-                        devices: [
-                            { name: 'Kindle Fire', w: 1024, h: 600 },
-                            { name: 'Kindle Fire HD', w: 1280, h: 800 }
-                        ]
-                    },
-                    {
-                        name: 'Asus',
-                        devices: [
-                            { name: 'Eee 1000', w: 1024, h: 600 },
-                            { name: 'Google Nexus 7', w: 1280, h: 800 }
-                        ]
-                    },
-                    {
-                        name: 'Barnes & Noble',
-                        devices: [
-                            { name: 'Nook HD', w: 1440, h: 900 },
-                            { name: 'Nook HD+', w: 1920, h: 1280 }
-                        ]
-                    },
-                    {
-                        name: 'HP',
-                        devices: [
-                            { name: 'Touchpad', w: 1024, h: 768 },
-                            { name: 'Slate 7', w: 1024, h: 600 }
-                        ]
-                    },
-                    {
-                        name: 'Microsoft',
-                        devices: [
-                            { name: 'Surface', w: 1366, h: 768 }
-                        ]
-                    },
-                    {
-                        name: 'Samsung',
-                        devices: [
-                            { name: 'Galaxy Tab 7.0', w: 1024, h: 600 },
-                            { name: 'Galaxy Tab 7.7', w: 1280, h: 800 },
-                            { name: 'Galaxy Tab 8.9', w: 1280, h: 800 },
-                            { name: 'Galaxy Tab 10.1', w: 1280, h: 800 }
-                        ]
-                    }
-                ]
-            },
-            {
-                type: 'laptop',
-                title: 'Laptop',
-                icon: 'icon-laptop',
-                brands: [
-                    {
-                        name: 'Apple',
-                        devices: [
-                            { name: '11" Macbook Air', w: 1366, h: 768 },
-                            { name: '13" Macbook Air', w: 1440, h: 900 },
-                            { name: '15" Macbook Pro', w: 1440, h: 900 },
-                            { name: '15" Macbook Pro Restina', w: 2880, h: 1800 }
-                        ]
-                    },
-                    {
-                        name: 'Dell',
-                        devices: [
-                            { name: 'Alienware M14X', w: 1366, h: 768 },
-                            { name: 'Alienware M17X', w: 1920, h: 1080 },
-                            { name: 'Alienware M18X', w: 1920, h: 1080 },
-                            { name: 'Inspiron 17R SE', w: 1920, h: 1080 }
-                        ]
-                    },
-                    {
-                        name: 'Toshiba',
-                        devices: [
-                            { name: 'Satellite P845-S4200', w: 1366, h: 768 }
-                        ]
-                    },
-                    {
-                        name: 'Lenovo',
-                        devices: [
-                            { name: 'IdeaPad Yoga', w: 1600, h: 900 },
-                            { name: 'IdeaPad Y580', w: 1920, h: 1080 },
-                            { name: 'ThinkPad X1 Carbon', w: 1600, h: 900 }
-                        ]
-                    }
-                ]
-            },
-            {
-                type: 'desktop',
-                title: 'Desktop',
-                icon: 'icon-desktop',
-                brands: [
-                    {
-                        name: 'Apple',
-                        devices: [
-                            { name: '21.5" iMac', w: 1920, h: 1080 },
-                            { name: '27" iMac', w: 2560, h: 1440 }
-                        ]
-                    },
-                    {
-                        name: 'Dell',
-                        devices: [
-                            { name: 'XPS One 27 Touch', w: 2560, h: 1440 }
-                        ]
-                    }
-                ]
+        $scope.onKeyup = function(key) {
+            if (key == 13) {
+                $scope.frameSrc = $scope.url;
             }
-        ]
+        };
+
+        /**
+         * Init the controller
+         */
+        $scope.init = function() {
+            $http.get('data/devices.json').success(function(response) {
+                $scope.SUPPORTED_DEVICES = response.supportedDevices;
+                $scope.loading = false;
+            });
+        };
     });
