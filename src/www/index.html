@@ -23,7 +23,10 @@
     <link href="app/css/style.css" rel="stylesheet" media="screen">
     <!--[if IE 7]><link rel="stylesheet" href="vendor/font-awesome/css/font-awesome-ie7.min.css"><![endif]-->
 
-    <!--[if lt IE 9]><script src="vendor/jquery/jquery-1.10.1.min.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="vendor/jquery/jquery-1.10.1.min.js"></script>
+    <script src="vendor/respond/respond.min.js"></script>
+    <![endif]-->
     <!--[if gte IE 9]><!--><script src="vendor/jquery/jquery-2.0.2.min.js"></script><!--<![endif]-->
     <script type="text/javascript" src="vendor/jquery-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -38,18 +41,20 @@
 </head>
 <body ng-controller="IndexController" ng-init="init()">
     <!-- nav: -->
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="app/img/logo.png" alt="Responsive Test" /></a>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".rt-navbar-collapse">
+                    <span class="sr-only">Toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="app/img/logo.png" alt="Responsive Test" /></a>
+            </div>
 
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".rt-navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <div class="nav-collapse collapse rt-navbar-collapse rt-navbar">
-                <form class="navbar-form form-inline pull-left col-lg-8">
+            <div class="nav-collapse rt-navbar-collapse rt-navbar">
+                <form class="navbar-form navbar-left">
                     <input type="text" class="form-control" ng-model="url" name="url" style="width: 250px; margin-right: 20px;" ng-model="url" placeholder="Enter the URL" rt-keyup="onKeyup" />
                     <input type="text" class="form-control" ng-model="w" name="w" style="width: 60px;" placeholder="w" />
                     <span style="color: #777;">x</span>
@@ -57,7 +62,7 @@
                     <button type="button" class="btn btn-success" ng-click="rotate()"><i class="icon-retweet"></i> Rotate</button>
                 </form>
 
-                <ul class="nav navbar-nav pull-right">
+                <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" ng-repeat="device in SUPPORTED_DEVICES" id="{{ device.type }}">
                         <a href="#{{ device.type }}" class="dropdown-toggle" data-toggle="dropdown" title="{{ device.title }}"><i class="{{ device.icon }} icon-2x"></i></a>
                         <rt-device brands="device.brands"></rt-device>
@@ -83,7 +88,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <p>
-                        v1.1<br />
+                        v1.1.1<br />
                         Created by Nguyen Huu Phuoc<br />
                         &copy; 2013 APL Solutions
                     </p>
@@ -93,7 +98,7 @@
                         <li><i class="icon-github"></i> <a href="http://github.com/nghuuphuoc">nghuuphuoc</a></li>
                     </ul>
 
-                    <p class="well-small">Powered by <a href="http://getbootstrap.com">Twitter Bootstrap 3</a>, <a href="http://angularjs.org">AngularJs</a>, <a href="http://jquery.com">jQuery</a> and <a href="http://jqueryui.com">jQuery UI</a></p>
+                    <p class="well-small">Powered by <a href="http://getbootstrap.com">Bootstrap 3</a>, <a href="http://angularjs.org">AngularJs</a>, <a href="http://jquery.com">jQuery</a> and <a href="http://jqueryui.com">jQuery UI</a></p>
                     <iframe src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&repo=responsivetest&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
                     <iframe src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="152" height="20"></iframe>
                 </div>
