@@ -15,6 +15,10 @@ If you want it to support more devices and screen resolutions, please fork the p
 
 **Nguyen Huu Phuoc** ([Email](mailto: phuoc@huuphuoc.me) / [Twitter](http://twitter.com/nghuuphuoc) / [Github](http://github.com/nghuuphuoc))
 
+Big thanks to the contributors:
+
+* [michaseel](https://github.com/michaseel)
+
 ## License
 
 Copyright (c) 2013 Nguyen Huu Phuoc
