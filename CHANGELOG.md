@@ -2,6 +2,7 @@
 
 v1.2.0 (2013/09/27)
 
+* Upgrade jQuery to 1.10.2 and 2.0.3
 * Add new device (LG Nexus 4)
 * Extend the width of preview 15px (scroll bar width)
 * Remove screenshot feature
