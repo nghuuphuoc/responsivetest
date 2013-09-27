@@ -53,7 +53,8 @@
                         { "name": "Optimus L5",    "w": 320,  "h": 480,  "inch": "4.0" },
                         { "name": "Optimus 3D",    "w": 480,  "h": 800,  "inch": "4.3" },
                         { "name": "Optimus 4X HD", "w": 720,  "h": 1280, "inch": "4.7" },
-                        { "name": "Optimus G Pro", "w": 1080, "h": 1920, "inch": "5.5" }
+                        { "name": "Optimus G Pro", "w": 1080, "h": 1920, "inch": "5.5" },
+                        { "name": "Nexus 4",       "w": 768,  "h": 1280, "inch": "4.7" }
                     ]
                 }
             ]
@@ -66,10 +67,9 @@
                 {
                     "name": "Apple",
                     "devices": [
-                        { "name": "iPad Mini", "w": 1024, "h": 768,  "inch": "7.9" },
-                        { "name": "iPad 2",    "w": 1024, "h": 768,  "inch": "9.7" },
-                        { "name": "iPad 3",    "w": 2048, "h": 1536, "inch": "9.7" },
-                        { "name": "iPad 4",    "w": 2048, "h": 1536, "inch": "9.7" }
+                        { "name": "iPad Mini",  "w": 1024, "h": 768,  "inch": "7.9" },
+                        { "name": "iPad 1 & 2", "w": 1024, "h": 768,  "inch": "9.7" },
+                        { "name": "iPad 3 & 4", "w": 2048, "h": 1536, "inch": "9.7" }
                     ]
                 },
                 {
