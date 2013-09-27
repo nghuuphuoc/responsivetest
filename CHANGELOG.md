@@ -1,5 +1,8 @@
 # Change log
 
+v1.2.1
+* Add Fork me on Github button
+
 v1.2.0 (2013/09/27)
 
 * Upgrade jQuery to 1.10.2 and 2.0.3
