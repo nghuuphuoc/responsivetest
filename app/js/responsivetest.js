@@ -1,8 +1,12 @@
 /**
- * @author Nguyen Huu Phuoc <huuphuoc.me>
- * @copyright (c) 2013 Nguyen Huu Phuoc
+ * ResponsiveTest v1.2.0 (http://responsivetest.net)
  *
- * Follow me on Twitter (@nghuuphuoc)
+ * Test responsive layout
+ *
+ * @link        https://github.com/nghuuphuoc/responsivetest
+ * @author      Nguyen Huu Phuoc <huuphuoc.me>
+ * @copyright   (c) 2013 Nguyen Huu Phuoc
+ * @license     MIT
  */
 
 angular
@@ -166,17 +170,6 @@ angular
         $scope.onKeyup = function(key) {
             if (key == 13) {
                 $scope.frameSrc = $scope.normalizeUrl($scope.url);
-            }
-        };
-
-        /**
-         * Make a screen shot for current URL
-         */
-        $scope.capture = function(evt) {
-            if (angular.isNumber($scope.w) && angular.isNumber($scope.h) && $scope.url) {
-                // Submit form
-                var form = evt.target.form;
-                form.submit();
             }
         };
 
