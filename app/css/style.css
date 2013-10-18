@@ -1,5 +1,5 @@
 /**
- * ResponsiveTest v1.2.0 (http://responsivetest.net)
+ * ResponsiveTest v1.2.1 (http://responsivetest.net)
  *
  * Test responsive layout
  *
@@ -33,6 +33,9 @@
 .rt-navbar .nav li span {
     position: absolute;
     right: 10px;
+}
+.rt-navbar li .dropdown-menu {
+    width: 260px;
 }
 
 .rt-iframe {

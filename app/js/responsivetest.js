@@ -1,5 +1,5 @@
 /**
- * ResponsiveTest v1.2.0 (http://responsivetest.net)
+ * ResponsiveTest v1.2.1 (http://responsivetest.net)
  *
  * Test responsive layout
  *

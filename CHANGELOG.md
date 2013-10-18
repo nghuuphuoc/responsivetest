@@ -3,6 +3,7 @@
 v1.2.1
 * Add Fork me on Github button
 * Add Google Nexus 7 (2013)
+* #13: Fix the width of device sub-menu
 
 v1.2.0 (2013/09/27)
 
