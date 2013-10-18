@@ -13,7 +13,7 @@ If you want it to support more devices and screen resolutions, please fork the p
 
 ## Author
 
-**Nguyen Huu Phuoc** ([Email](mailto: phuoc@huuphuoc.me) / [Twitter](http://twitter.com/nghuuphuoc) / [Github](http://github.com/nghuuphuoc))
+Nguyen Huu Phuoc ([Email](mailto: phuoc@huuphuoc.me) / [Twitter](http://twitter.com/nghuuphuoc) / [Github](http://github.com/nghuuphuoc))
 
 Big thanks to the contributors:
 

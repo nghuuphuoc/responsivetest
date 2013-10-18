@@ -2,6 +2,7 @@
 
 v1.2.1
 * Add Fork me on Github button
+* Add Google Nexus 7 (2013)
 
 v1.2.0 (2013/09/27)
 
