@@ -50,3 +50,8 @@
     width: 100%;
     height: 100%;
 }
+.rt-loader {
+    background: #fff url('../img/loader.gif') no-repeat 50% 50%;
+    opacity: 0.75;
+    z-index: 1000;
+}

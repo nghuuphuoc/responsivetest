@@ -11,6 +11,7 @@
 
 angular
     .module('ResponsiveTest', [])
+    // Show devices
     .directive('rtDevice', function($compile) {
         return {
             restrict: 'EA',
@@ -58,6 +59,34 @@ angular
             }
         };
     })
+    // Add loading indicator while the frame is loading
+    .directive('rtFrameLoading', function() {
+        return {
+            restrict: 'A',
+            link: function($scope, $element, $attrs) {
+                var $loader = $('<div/>').css({
+                    position: 'absolute',
+                    top: 0,
+                    width: 0,
+                    margin: 0,
+                    padding: 0,
+                    width: '100%',
+                    height: '100%'
+                }).addClass('rt-loader').prependTo($element.parent());
+                $element.on('load', function() {
+                    $loader.hide();
+                });
+
+                // Show the loader indicator when the URL is changed
+                $scope.$watch('frameSrc', function() {
+                    if ($scope.frameSrc) {
+                        $loader.show();
+                    }
+                });
+            }
+        };
+    })
+    // Make the frame resizable
     .directive('rtResizable', function() {
         return {
             restrict: 'A',
@@ -92,8 +121,8 @@ angular
             }
         };
     })
+    // Handle the onKeyUp event
     .directive('rtKeyup', function() {
-        // Handle the onKeyUp event
         // Store the URL when user press the Enter key
         return function(scope, element, attrs) {
             var keyupHandler = scope.$eval(attrs.rtKeyup);
@@ -104,6 +133,7 @@ angular
             });
         };
     })
+    // Show the loading indicator when getting the data via an Ajax request
     .config(function($httpProvider) {
         var numLoadings = 0;
         var loadingScreen = $('<div style="position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%;"><div style="position: absolute; top: 50%; left: 0; width: 100%;"><div class="row"><div class="col-lg-6 col-lg-offset-3"><div class="progress progress-striped active"><div class="progress-bar" style="width: 100%;"></div></div></div></div></div></div>').appendTo($('body')).hide();
@@ -180,6 +210,7 @@ angular
 
         /**
          * Switch to given size
+         *
          * @param {int} width
          * @param {int} height
          * @param {int} pixelDestiny
@@ -192,6 +223,7 @@ angular
 
         /**
          * Handle the keyup event of URL field
+         *
          * @param {int} key The key code
          */
         $scope.onKeyup = function(key) {
@@ -202,6 +234,7 @@ angular
 
         /**
          * Normalize input URL
+         *
          * @param {String} url
          * @return {String}
          */
