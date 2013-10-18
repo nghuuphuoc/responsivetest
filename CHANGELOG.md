@@ -1,6 +1,6 @@
 # Change log
 
-v1.2.1
+v1.2.1 (2013/10/18)
 
 * Add Fork me on Github button
 * Add Google Nexus 7 (2013)
