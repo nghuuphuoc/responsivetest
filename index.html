@@ -80,6 +80,12 @@
     <div class="rt-ruler"></div>
     <!-- :ruler -->
 
+    <!-- dest-iframe: -->
+    <div class="rt-iframe" ng-style="{ width: w / pxd + 15 + 'px', height: h / pxd + 'px' }" rt-resizable ng-show="!loading" id="iframe">
+        <iframe ng-src="{{ frameSrc }}" rt-frame-loading></iframe>
+    </div>
+    <!-- :dest-iframe -->
+
     <!-- about: -->
     <div class="modal fade" id="about">
         <div class="modal-dialog">
@@ -91,7 +97,7 @@
                 <div class="modal-body text-center">
                     <p>
                         v1.2.1<br />
-                        Created by Nguyen Huu Phuoc<br />
+                        Created by <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a><br />
                         &copy; 2013 <a href="http://apl.vn">APL Solutions</a>
                     </p>
                     <p>
@@ -108,12 +114,6 @@
         </div>
     </div>
     <!-- :about -->
-
-    <!-- dest-iframe: -->
-    <div class="rt-iframe" ng-style="{ width: w / pxd + 15 + 'px', height: h / pxd + 'px' }" rt-resizable ng-show="!loading" id="iframe">
-        <iframe ng-src="{{ frameSrc }}" rt-frame-loading></iframe>
-    </div>
-    <!-- :dest-iframe -->
 
     <!-- fork-me -->
     <a href="https://github.com/nghuuphuoc/responsivetest"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork ResponsiveTest on GitHub"></a>

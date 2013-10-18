@@ -8,6 +8,7 @@ v1.2.1 (2013/10/18)
 * #13: Fix the width of device sub-menu
 * #15: Set the Ajax loading indicator at the center of screen
 * #16: Cannot move the mouse out of the frame after resizing the frame
+* #17: The nav bar position is changed when showing the About modal
 
 v1.2.0 (2013/09/27)
 

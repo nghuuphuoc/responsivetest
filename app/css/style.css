@@ -9,6 +9,11 @@
  * @license     MIT
  */
 
+/* The nav bar position will not be changed when showing the About modal */
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+    margin-right: 0;
+}
+
 .navbar {
     background: #fff;
     border-bottom: 1px solid #c0c0c0;
