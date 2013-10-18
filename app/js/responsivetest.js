@@ -87,7 +87,7 @@ angular
     })
     .config(function($httpProvider) {
         var numLoadings = 0;
-        var loadingScreen = $('<div style="position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%;"><div style="position: absolute; top: 50%; left: 0; width: 100%;"><div class="row"><div class="col-lg-6 col-offset-3"><div class="progress progress-striped active"><div class="progress-bar" style="width: 100%;"></div></div></div></div></div></div>').appendTo($('body')).hide();
+        var loadingScreen = $('<div style="position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%;"><div style="position: absolute; top: 50%; left: 0; width: 100%;"><div class="row"><div class="col-lg-6 col-lg-offset-3"><div class="progress progress-striped active"><div class="progress-bar" style="width: 100%;"></div></div></div></div></div></div>').appendTo($('body')).hide();
         $httpProvider.responseInterceptors.push(function() {
             return function(promise) {
                 numLoadings++;
