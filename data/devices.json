@@ -84,8 +84,9 @@
                 {
                     "name": "Asus",
                     "devices": [
-                        { "name": "Google Nexus 7",               "w": 1280, "h": 800,  "inch": "7",    "pxd": 1.33 },
+                        { "name": "Google Nexus 7 (2012)",        "w": 1280, "h": 800,  "inch": "7",    "pxd": 1.33 },
                         { "name": "Transformer Pad TF300",        "w": 1280, "h": 800,  "inch": "10.1", "pxd": 1 },
+                        { "name": "Google Nexus 7 (2013)",        "w": 1920, "h": 1200, "inch": "7.02", "pxd": 2 },
                         { "name": "Transformer Pad Infinity",     "w": 1920, "h": 1200, "inch": "10.1", "pxd": 1 },
                         { "name": "New Transformer Pad Infinity", "w": 2560, "h": 1600, "inch": "10.1", "pxd": 1 }
                     ]
