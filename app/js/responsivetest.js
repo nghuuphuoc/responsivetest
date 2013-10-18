@@ -56,22 +56,41 @@ angular
                 $compile(newElement)($scope);
                 $element.replaceWith(newElement);
             }
-        }
+        };
     })
     .directive('rtResizable', function() {
         return {
             restrict: 'A',
             link: function($scope, $element, $attrs) {
-                var parent = $scope.$parent;
+                var parentScope = $scope.$parent;
+
+                // Cannot move the mouse out of the frame after resizing the frame
+                $element.css('position', 'relative');
+                var $mask = $('<div/>').css({
+                    position: 'absolute',
+                    top: 0,
+                    width: 0,
+                    margin: 0,
+                    padding: 0,
+                    width: '100%',
+                    height: '100%'
+                }).hide().prependTo($element);
+
                 $element.resizable({
+                    start: function(event, ui) {
+                        $mask.show();
+                    },
+                    stop: function(event, ui) {
+                        $mask.hide();
+                    },
                     resize: function(event, ui) {
                         $scope.w = ui.size.width  * $scope.pxd;
                         $scope.h = ui.size.height * $scope.pxd;
-                        parent.$apply();
+                        parentScope.$apply();
                     }
                 });
             }
-        }
+        };
     })
     .directive('rtKeyup', function() {
         // Handle the onKeyUp event
@@ -83,7 +102,7 @@ angular
                     keyupHandler(evt.which);
                 });
             });
-        }
+        };
     })
     .config(function($httpProvider) {
         var numLoadings = 0;
