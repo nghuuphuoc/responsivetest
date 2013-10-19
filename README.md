@@ -17,18 +17,20 @@ $ bower install responsivetest
 ```
 
 * Point your web server to the ResponsiveTest directory.
-You can python to simplify this step by running the following command:
+You can use python to simplify this step by running the following command:
 
 ```bash
 $ python -m SimpleHTTPServer <port>
 ```
 
-Then access the browser at ```http://localhost:<port>```
+Then, access the browser at ```http://localhost:<port>```
 
 > ResponsiveTest is written in CSS, Javascript, and HTML entirely.
 > The tool uses an Ajax request to retrieve the devices data which is stored in an external file (```data/devices.json```).
+>
 > As you know, the browser doesn't allow to do it if the file is served locally due to security concern
 > ```Origin null is not allowed by Access-Control-Allow-Origin```
+>
 > That's why we need to run it with a HTTP server.
 
 ## Add more devices
@@ -38,6 +40,8 @@ The device sizes are defined in ```data/devices.json``` file.
 If you want it to support more devices and screen resolutions, please fork the project and pull a new request.
 
 You don't have to rebuild if you only change the ```data/devices.json``` file.
+
+> By default, the tool will randomly load an URL found in ```randomUrls``` section from ```data/devices.json```.
 
 ## Build
 
