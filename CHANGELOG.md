@@ -1,6 +1,7 @@
 # Change log
 
 v1.2.2
+
 * Register with bower
 * #9: Add Grunt build script
 * #10: Add compressed version of the CSS, JS files
