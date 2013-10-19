@@ -4,6 +4,7 @@ v1.2.2
 * Register with bower
 * #9: Add Grunt build script
 * #10: Add compressed version of the CSS, JS files
+* #18: Upgrade AngularJS from 1.0.7 to 1.0.8
 
 v1.2.1 (2013/10/18)
 
