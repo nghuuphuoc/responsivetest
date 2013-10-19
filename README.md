@@ -5,7 +5,7 @@ You can see the live demo on http://responsivetest.net
 
 The tool is powered by [jQuery](http://jquery.com), [Bootstrap 3](http://getbootstrap.com), and [AngularJS](http://angularjs.org)
 
-![ResponsiveTest screen shot](src/img/screenshot.png)
+![ResponsiveTest screen shot](img/screenshot.png)
 
 ## Download and run
 
