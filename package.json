@@ -1,0 +1,16 @@
+{
+  "name": "responsivetest",
+  "author": {
+    "name": "Nguyen Huu Phuoc <phuoc@huuphuoc.me>",
+    "url": "https://twitter.com/nghuuphuoc"
+  },
+  "homepage": "http://github.com/nghuuphuoc/responsivetest",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.6.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-ngmin": "0.0.3"
+  },
+  "version": "1.2.2"
+}
