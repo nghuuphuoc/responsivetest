@@ -46,6 +46,7 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
 .rt-iframe {
     margin-top: 59px;
     border: 1px solid #ccc;
+    border-top: none;
 }
 
 .rt-iframe iframe {

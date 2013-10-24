@@ -23,7 +23,6 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
     <link href="vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" media="screen">
     <link href="dist/css/style.min.css" rel="stylesheet" media="screen">
-    <!--[if IE 7]><link rel="stylesheet" href="vendor/font-awesome/css/font-awesome-ie7.min.css"><![endif]-->
 
     <!--[if lt IE 9]>
     <script src="vendor/jquery/jquery-1.10.2.min.js"></script>
@@ -61,15 +60,15 @@
                     <input type="text" class="form-control" ng-model="w" name="w" style="width: 60px;" placeholder="w" />
                     <span style="color: #777;">x</span>
                     <input type="text" class="form-control" ng-model="h" name="h" style="width: 60px;" placeholder="h" />
-                    <button type="button" class="btn btn-success" ng-click="rotate()"><i class="icon-retweet"></i> Rotate</button>
+                    <button type="button" class="btn btn-success" ng-click="rotate()"><i class="fa fa-retweet"></i> Rotate</button>
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" ng-repeat="device in SUPPORTED_DEVICES" id="{{ device.type }}">
-                        <a href="#{{ device.type }}" class="dropdown-toggle" data-toggle="dropdown" title="{{ device.title }}"><i class="{{ device.icon }} icon-2x"></i></a>
+                        <a href="#{{ device.type }}" class="dropdown-toggle" data-toggle="dropdown" title="{{ device.title }}"><i class="fa {{ device.icon }} fa-2x"></i></a>
                         <rt-device brands="device.brands"></rt-device>
                     </li>
-                    <li><a data-toggle="modal" href="#about"><i class="icon-info-sign icon-2x"></i></a></li>
+                    <li><a data-toggle="modal" href="#about"><i class="fa fa-info-circle fa-2x"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -96,7 +95,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <p>
-                        v1.2.1<br />
+                        v1.2.2<br />
                         Created by <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a><br />
                         &copy; 2013 <a href="http://apl.vn">APL Solutions</a>
                     </p>

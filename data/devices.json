@@ -1,5 +1,5 @@
 {
-    "lastUpdated": "2013-10-18",
+    "lastUpdated": "2013-10-24",
     "lastUpdatedBy": "Nguyen Huu Phuoc <phuoc@huuphuoc.me>",
     "randomUrls": [
         "http://www.zootemplate.com",
@@ -9,7 +9,7 @@
         {
             "type": "phone",
             "title": "Phone",
-            "icon": "icon-mobile-phone",
+            "icon": "fa-mobile",
             "brands": [
                 {
                     "name": "Apple",
@@ -63,7 +63,7 @@
         {
             "type": "tablet",
             "title": "Tablet",
-            "icon": "icon-tablet",
+            "icon": "fa-tablet",
             "brands": [
                 {
                     "name": "Apple",
@@ -137,7 +137,7 @@
         {
             "type": "laptop",
             "title": "Laptop",
-            "icon": "icon-laptop",
+            "icon": "fa-laptop",
             "brands": [
                 {
                     "name": "Apple",
@@ -210,7 +210,7 @@
         {
             "type": "desktop",
             "title": "Desktop",
-            "icon": "icon-desktop",
+            "icon": "fa-desktop",
             "brands": [
                 {
                     "name": "Apple",
