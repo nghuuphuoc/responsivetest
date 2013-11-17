@@ -123,7 +123,8 @@ angular.module('ResponsiveTest', []).directive('rtDevice', [
   '$rootScope',
   '$scope',
   '$http',
-  function ($rootScope, $scope, $http) {
+  '$sce',
+  function ($rootScope, $scope, $http, $sce) {
     $scope.loading = true;
     $scope.w = 1024;
     $scope.h = 768;
@@ -148,7 +149,7 @@ angular.module('ResponsiveTest', []).directive('rtDevice', [
           $scope.url = response.randomUrls[Math.floor(Math.random() * response.randomUrls.length)];
         }
         if ($scope.url) {
-          $scope.frameSrc = $scope.normalizeUrl($scope.url);
+          $scope.frameSrc = $sce.trustAsResourceUrl($scope.normalizeUrl($scope.url));
         }
         $scope.loading = false;
       });
@@ -170,7 +171,7 @@ angular.module('ResponsiveTest', []).directive('rtDevice', [
     };
     $scope.onKeyup = function (key) {
       if (key == 13) {
-        $scope.frameSrc = $scope.normalizeUrl($scope.url);
+        $scope.frameSrc = $sce.trustAsResourceUrl($scope.normalizeUrl($scope.url));
       }
     };
     $scope.normalizeUrl = function (url) {

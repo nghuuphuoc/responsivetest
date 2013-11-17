@@ -151,7 +151,7 @@ angular
             };
         });
     })
-    .controller('IndexController', function($rootScope, $scope, $http) {
+    .controller('IndexController', function($rootScope, $scope, $http, $sce) {
         $scope.loading  = true;
         $scope.w        = 1024;
         $scope.h        = 768;
@@ -187,7 +187,8 @@ angular
                 }
 
                 if ($scope.url) {
-                    $scope.frameSrc = $scope.normalizeUrl($scope.url);
+                    // To make it compatible with Angular 1.2.0, use $sce.trustAsResourceUrl()
+                    $scope.frameSrc = $sce.trustAsResourceUrl($scope.normalizeUrl($scope.url));
                 }
                 $scope.loading  = false;
             });
@@ -228,7 +229,7 @@ angular
          */
         $scope.onKeyup = function(key) {
             if (key == 13) {
-                $scope.frameSrc = $scope.normalizeUrl($scope.url);
+                $scope.frameSrc = $sce.trustAsResourceUrl($scope.normalizeUrl($scope.url));
             }
         };
 
