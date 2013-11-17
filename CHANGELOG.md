@@ -8,6 +8,7 @@ v1.2.2
 * #18: Upgrade AngularJS from 1.0.7 to 1.0.8
 * #22: Upgrade Font Awesome to v4.0
 * #23: Upgrade Bootstrap to v3.0.2
+* #24: Upgrade Font Awesome to v4.0.3
 
 v1.2.1 (2013/10/18)
 
