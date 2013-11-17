@@ -19,19 +19,18 @@ angular
             scope: {
                 brands: '='
             },
-            // templateUrl: 'app/views/device.html',
-            link: function($scope, $element, $attrs) {
-                var template = '<ul class="dropdown-menu">', brands = $scope.brands, numBrands = brands.length;
+            link: function(scope, element, attrs) {
+                var template = '<ul class="dropdown-menu">', brands = scope.brands, numBrands = brands.length;
 
-                $scope.openStatus     = new Array(numBrands);
-                $scope.openStatus[0]  = true;
-                $scope.lastHoverBrand = 0;
+                scope.openStatus     = new Array(numBrands);
+                scope.openStatus[0]  = true;
+                scope.lastHoverBrand = 0;
 
-                $scope.toggleBrand = function(i) {
-                    $scope.openStatus[i] = true;
-                    if (i != $scope.lastHoverBrand) {
-                        $scope.openStatus[$scope.lastHoverBrand] = false;
-                        $scope.lastHoverBrand = i;
+                scope.toggleBrand = function(i) {
+                    scope.openStatus[i] = true;
+                    if (i != scope.lastHoverBrand) {
+                        scope.openStatus[scope.lastHoverBrand] = false;
+                        scope.lastHoverBrand = i;
                     }
                 };
 
@@ -54,8 +53,8 @@ angular
                 template += '</ul>';
 
                 var newElement = angular.element(template);
-                $compile(newElement)($scope);
-                $element.replaceWith(newElement);
+                $compile(newElement)(scope);
+                element.replaceWith(newElement);
             }
         };
     })
@@ -63,8 +62,8 @@ angular
     .directive('rtFrameLoading', function() {
         return {
             restrict: 'A',
-            link: function($scope, $element, $attrs) {
-                var $loader = $('<div/>').css({
+            link: function(scope, element, attrs) {
+                var loader = angular.element('<div/>').css({
                     position: 'absolute',
                     top: 0,
                     width: 0,
@@ -72,15 +71,15 @@ angular
                     padding: 0,
                     width: '100%',
                     height: '100%'
-                }).addClass('rt-loader').prependTo($element.parent());
-                $element.on('load', function() {
-                    $loader.hide();
+                }).addClass('rt-loader').prependTo(element.parent());
+                element.on('load', function() {
+                    loader.hide();
                 });
 
                 // Show the loader indicator when the URL is changed
-                $scope.$watch('frameSrc', function() {
-                    if ($scope.frameSrc) {
-                        $loader.show();
+                scope.$watch('frameSrc', function() {
+                    if (scope.frameSrc) {
+                        loader.show();
                     }
                 });
             }
@@ -90,12 +89,12 @@ angular
     .directive('rtResizable', function() {
         return {
             restrict: 'A',
-            link: function($scope, $element, $attrs) {
-                var parentScope = $scope.$parent;
+            link: function(scope, element, attrs) {
+                var parentScope = scope.$parent;
 
                 // Cannot move the mouse out of the frame after resizing the frame
-                $element.css('position', 'relative');
-                var $mask = $('<div/>').css({
+                element.css('position', 'relative');
+                var mask = angular.element('<div/>').css({
                     position: 'absolute',
                     top: 0,
                     width: 0,
@@ -103,18 +102,18 @@ angular
                     padding: 0,
                     width: '100%',
                     height: '100%'
-                }).hide().prependTo($element);
+                }).hide().prependTo(element);
 
-                $element.resizable({
+                element.resizable({
                     start: function(event, ui) {
-                        $mask.show();
+                        mask.show();
                     },
                     stop: function(event, ui) {
-                        $mask.hide();
+                        mask.hide();
                     },
                     resize: function(event, ui) {
-                        $scope.w = ui.size.width  * $scope.pxd;
-                        $scope.h = ui.size.height * $scope.pxd;
+                        scope.w = ui.size.width  * scope.pxd;
+                        scope.h = ui.size.height * scope.pxd;
                         parentScope.$apply();
                     }
                 });
@@ -135,8 +134,10 @@ angular
     })
     // Show the loading indicator when getting the data via an Ajax request
     .config(function($httpProvider) {
-        var numLoadings = 0;
-        var loadingScreen = $('<div style="position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%;"><div style="position: absolute; top: 50%; left: 0; width: 100%;"><div class="row"><div class="col-lg-6 col-lg-offset-3"><div class="progress progress-striped active"><div class="progress-bar" style="width: 100%;"></div></div></div></div></div></div>').appendTo($('body')).hide();
+        var numLoadings   = 0,
+            loadingScreen = angular.element('<div style="position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%;"><div style="position: absolute; top: 50%; left: 0; width: 100%;"><div class="row"><div class="col-lg-6 col-lg-offset-3"><div class="progress progress-striped active"><div class="progress-bar" style="width: 100%;"></div></div></div></div></div></div>')
+                                   .appendTo(angular.element('body'))
+                                   .hide();
         $httpProvider.responseInterceptors.push(function() {
             return function(promise) {
                 numLoadings++;
