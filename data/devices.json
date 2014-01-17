@@ -145,7 +145,7 @@
                         { "name": "11' Macbook Air",         "w": 1366, "h": 768,  "inch": "11", "pxd": 1 },
                         { "name": "13' Macbook Air",         "w": 1440, "h": 900,  "inch": "13", "pxd": 1 },
                         { "name": "15' Macbook Pro",         "w": 1440, "h": 900,  "inch": "15", "pxd": 1 },
-                        { "name": "15' Macbook Pro Restina", "w": 2880, "h": 1800, "inch": "15", "pxd": 1 }
+                        { "name": "15' Macbook Pro Retina", "w": 2880, "h": 1800, "inch": "15", "pxd": 1 }
                     ]
                 },
                 {
