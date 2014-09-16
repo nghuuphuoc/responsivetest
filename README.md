@@ -2,7 +2,9 @@
 
 This tool is used to test responsive layout. You can see the live demo on http://responsivetest.net. 
 
-The tool is powered by [jQuery](http://jquery.com), [Bootstrap 3](http://getbootstrap.com), and [AngularJS](http://angularjs.org).
+Powered by [jQuery](http://jquery.com), [Bootstrap 3](http://getbootstrap.com), and [AngularJS](http://angularjs.org).
+
+> You should also check [BootstrapValidator](http://bootstrapvalidator.com), the best jQuery plugin to validate form fields. It's another cool thing by [@nghuuphuoc](http://twitter.com/nghuuphuoc)
 
 ![ResponsiveTest screen shot](img/demo.gif)
 
@@ -67,9 +69,6 @@ $ grunt
 ResponsiveTest is developed by Nguyen Huu Phuoc
 * [http://twitter.com/nghuuphuoc](http://twitter.com/nghuuphuoc)
 * [http://github.com/nghuuphuoc](http://github.com/nghuuphuoc)
-
-Other projects:
-* [BootstrapValidator](http://bootstrapvalidator.com) - The best jQuery plugin to validate form fields
 
 Big thanks to the contributors:
 
