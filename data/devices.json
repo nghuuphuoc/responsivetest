@@ -16,7 +16,9 @@
                     "devices": [
                         { "name": "iPhone",   "w": 320, "h": 480,  "inch": "3.5", "pxd": 1 },
                         { "name": "iPhone 4", "w": 640, "h": 960,  "inch": "3.5", "pxd": 2 },
-                        { "name": "iPhone 5", "w": 640, "h": 1136, "inch": "4.0", "pxd": 2 }
+                        { "name": "iPhone 5", "w": 640, "h": 1136, "inch": "4.0", "pxd": 2 },
+                        { "name": "iPhone 6", "w": 750, "h": 1334, "inch": "4.7", "pxd": 2 },
+                        { "name": "iPhone 6 Plus", "w": 1080, "h": 1920, "inch": "5.5", "pxd": 2.46 }
                     ]
                 },
                 {
