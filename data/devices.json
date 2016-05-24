@@ -39,8 +39,8 @@
                         { "name": "Samsung S3",     "w": 720,  "h": 1280, "inch": "4.8", "pxd": 2 },
                         { "name": "Samsung S4",     "w": 1080, "h": 1920, "inch": "5",   "pxd": 3 },
                     	{ "name": "Samsung S5",     "w": 1440, "h": 2560, "inch": "5.1",   "pxd": 3 },
-						{ "name": "Samsung S6",     "w": 1440, "h": 2560, "inch": "5.1",   "pxd": 3 },
-						{ "name": "Samsung S7",     "w": 1440, "h": 2560, "inch": "5.1",   "pxd": 3 }
+			{ "name": "Samsung S6",     "w": 1440, "h": 2560, "inch": "5.1",   "pxd": 3 },
+			{ "name": "Samsung S7",     "w": 1440, "h": 2560, "inch": "5.1",   "pxd": 3 }
                     ]
                 },
                 {
